@@ -2,6 +2,7 @@ import React from 'react';
 import Wrapper from '../../UI/wrapper';
 import Link from 'next/link';
 import { SearchIcon } from '@/app/icons';
+import Button from '../../UI/button';
 
 const Header = () => {
   return (
@@ -34,11 +35,7 @@ const Header = () => {
                 className='bg-customGray text-white p-4 rounded-lg w-60 outline-customOrange'
               />
             </form>
-            <button
-              type='button'
-              className='py-4 px-9 bg-customOrange text-black font-semibold rounded-lg'>
-              Log in
-            </button>
+            <Button>Log in</Button>
           </div>
         </nav>
       </Wrapper>

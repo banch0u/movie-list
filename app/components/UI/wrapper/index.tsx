@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Wrapper = ({ children }: Props) => {
-  return <div className='w-[90%] m-auto'>{children}</div>;
+  return <div className='max-w-[1440px] w-[75%] m-auto'>{children}</div>;
 };
 
 export default Wrapper;
