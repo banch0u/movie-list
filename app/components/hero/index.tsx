@@ -6,7 +6,7 @@ import Button from '../UI/button';
 
 const Hero = () => {
   return (
-    <section className='max-h-[700px]  m-auto overflow-hidden relative'>
+    <section className='max-h-[700px]  m-auto overflow-hidden relative mb-16'>
       <Image src={HeroImg} alt='hero' className='w-full grayscale ' />
       <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3'>
         <Wrapper>

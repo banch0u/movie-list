@@ -9,7 +9,7 @@ const Button = ({ children, rightRound = false }: Props) => {
   return (
     <>
       {!rightRound ? (
-        <button className='py-4 px-9 bg-customOrange text-black font-semibold rounded-lg'>
+        <button className='py-2 px-9 bg-customOrange text-black font-semibold rounded-lg'>
           {children}
         </button>
       ) : (

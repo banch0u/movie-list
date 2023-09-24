@@ -1,0 +1,11 @@
+.react-tabs .custom-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.react-tabs .react-tabs__tab-list {
+  display: flex;
+  gap: 1rem;
+}
