@@ -11,19 +11,19 @@ const Header = () => {
         <nav className='flex items-center justify-between py-4'>
           <div>
             <Link href={'/'}>
-              <h1 className='font-black text-4xl hover:rotate-12 transition-all'>
+              <h1 className='font-black text-4xl hover:rotate-12 transition-all hover:text-customOrange'>
                 M
               </h1>
             </Link>
           </div>
           <ul className='flex gap-20 text-xl font-semibold'>
-            <li className='transition hover:font-extrabold '>
+            <li className='transition hover:text-customOrange '>
               <Link href=''>Movies</Link>
             </li>
-            <li className='transition hover:font-extrabold '>
+            <li className='transition hover:text-customOrange '>
               <Link href=''>Tv Shows</Link>
             </li>
-            <li className='transition hover:font-extrabold '>
+            <li className='transition hover:text-customOrange '>
               <Link href=''>Peoples</Link>
             </li>
           </ul>
