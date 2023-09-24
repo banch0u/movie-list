@@ -5,12 +5,14 @@ import { SearchIcon } from '@/app/icons';
 
 const Header = () => {
   return (
-    <header className='border-b-8'>
+    <header className=''>
       <Wrapper>
         <nav className='flex items-center justify-between py-4'>
           <div>
             <Link href={'/'}>
-              <h1 className='font-black text-4xl'>M</h1>
+              <h1 className='font-black text-4xl hover:rotate-12 transition-all'>
+                M
+              </h1>
             </Link>
           </div>
           <ul className='flex gap-20 text-xl font-semibold'>
@@ -24,27 +26,19 @@ const Header = () => {
               <Link href=''>Peoples</Link>
             </li>
           </ul>
-          <div className='flex items-center gap-6 text-xl font-semibold'>
-            <select name='lang' id='lang' className=' bg-transparent'>
-              <option className='text-black font-semibold' value='en'>
-                EN
-              </option>
-              <option className='text-black font-semibold' value='az'>
-                AZ
-              </option>
-              <option className='text-black font-semibold' value='ru'>
-                RU
-              </option>
-              <option className='text-black font-semibold' value='tr'>
-                TR
-              </option>
-            </select>
-            <Link href={''}>Login</Link>
-            <Link href={''}>Join Us</Link>
-
-            <Link href={''}>
-              <SearchIcon />
-            </Link>
+          <div className='flex gap-4'>
+            <form>
+              <input
+                type='text'
+                placeholder='Search'
+                className='bg-customGray text-white p-4 rounded-lg w-60 outline-customOrange'
+              />
+            </form>
+            <button
+              type='button'
+              className='py-4 px-9 bg-customOrange text-black font-semibold rounded-lg'>
+              Log in
+            </button>
           </div>
         </nav>
       </Wrapper>
