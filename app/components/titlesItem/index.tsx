@@ -4,7 +4,7 @@ import CoverImage from '../../assets/images/title.jpg';
 import Score from '../score';
 import Link from 'next/link';
 
-const TitleItem = () => {
+const TitlesItem = () => {
   return (
     <div className='flex gap-6 justify-center'>
       <Link href={''} className='w-[16.6%]'>
@@ -61,4 +61,4 @@ const TitleItem = () => {
   );
 };
 
-export default TitleItem;
+export default TitlesItem;

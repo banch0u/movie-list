@@ -5,15 +5,24 @@ import Title from '../UI/title';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import './tabs.css';
 import Button from '../UI/button';
-import TitleItem from '../titlesItem';
+import TitlesItem from '../titlesItem';
+import TrailersItem from '../trailersItem';
 
-const Titles = () => {
+interface Props {
+  bg?: boolean;
+  title?: string;
+  type?: string;
+}
+
+const Titles = ({ bg = true, title, type = 'title' }: Props) => {
   return (
-    <section className='pb-16'>
+    <section
+      className='py-16'
+      style={{ backgroundColor: `${bg ? '#000000' : '#1F1F1F'}` }}>
       <Wrapper>
         <Tabs>
           <div className='custom-tabs'>
-            <Title>Trending</Title>
+            <Title>{title}</Title>
             <TabList>
               <Tab>
                 <Button>Movies</Button>
@@ -24,10 +33,12 @@ const Titles = () => {
             </TabList>
           </div>
           <TabPanel>
-            <TitleItem />
+            {type === 'title' ? <TitlesItem /> : null}
+            {type === 'trailer' ? <TrailersItem /> : null}
           </TabPanel>
           <TabPanel>
-            <TitleItem />
+            {type === 'title' ? <TitlesItem /> : null}
+            {type === 'trailer' ? <TrailersItem /> : null}
           </TabPanel>
         </Tabs>
       </Wrapper>

@@ -12,4 +12,17 @@ const SearchIcon = () => {
     </svg>
   );
 };
-export { SearchIcon };
+
+const PlayButton = () => {
+  return (
+    <svg
+      width='60'
+      height='70'
+      viewBox='0 0 60 70'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'>
+      <path d='M60 35L0 69.6411L3.02841e-06 0.359009L60 35Z' fill='#D9D9D9' />
+    </svg>
+  );
+};
+export { SearchIcon, PlayButton };
