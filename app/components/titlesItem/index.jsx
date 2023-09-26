@@ -1,62 +1,41 @@
+'use client';
 import Image from 'next/image';
-import React from 'react';
+import React, { use, useEffect, useState } from 'react';
 import CoverImage from '../../assets/images/title.jpg';
 import Score from '../score';
 import Link from 'next/link';
 
-const TitlesItem = () => {
+const TitlesItem = ({ type = 'movie', data }) => {
+  const [load, setLoad] = useState(false);
+  useEffect(() => {
+    data ? setLoad(true) : null;
+  }, [data]);
   return (
     <div className='flex gap-6 justify-center'>
-      <Link href={''} className='w-[16.6%]'>
-        <Image src={CoverImage} alt='' className='rounded-xl mb-2' />
-        <div>
-          <Score score={69} />
-          <h4 className='inline text-xl hover:text-customOrange transition-all'>
-            The Continental: From the World of John Wick
-          </h4>
-          <p className='text-gray-500'>Sep 22, 2023</p>
-        </div>
-      </Link>
-      <Link href={''} className='w-[16.6%]'>
-        <Image src={CoverImage} alt='' className='rounded-xl mb-2' />
-        <Score score={69} />
-        <h4 className='inline text-xl hover:text-customOrange transition-all'>
-          The Continental: From the World of John Wick
-        </h4>
-        <p className='text-gray-500'>Sep 22, 2023</p>
-      </Link>
-      <Link href={''} className='w-[16.6%]'>
-        <Image src={CoverImage} alt='' className='rounded-xl mb-2' />
-        <Score score={69} />
-        <h4 className='inline text-xl hover:text-customOrange transition-all'>
-          The Continental: From the World of John Wick
-        </h4>
-        <p className='text-gray-500'>Sep 22, 2023</p>
-      </Link>
-      <Link href={''} className='w-[16.6%]'>
-        <Image src={CoverImage} alt='' className='rounded-xl mb-2' />
-        <Score score={69} />
-        <h4 className='inline text-xl hover:text-customOrange transition-all'>
-          The Continental: From the World of John Wick
-        </h4>
-        <p className='text-gray-500'>Sep 22, 2023</p>
-      </Link>
-      <Link href={''} className='w-[16.6%]'>
-        <Image src={CoverImage} alt='' className='rounded-xl mb-2' />
-        <Score score={69} />
-        <h4 className='inline text-xl hover:text-customOrange transition-all'>
-          The Continental: From the World of John Wick
-        </h4>
-        <p className='text-gray-500'>Sep 22, 2023</p>
-      </Link>
-      <Link href={''} className='w-[16.6%]'>
-        <Image src={CoverImage} alt='' className='rounded-xl mb-2' />
-        <Score score={69} />
-        <h4 className='inline text-xl hover:text-customOrange transition-all'>
-          The Continental: From the World of John Wick
-        </h4>
-        <p className='text-gray-500'>Sep 22, 2023</p>
-      </Link>
+      {load ? (
+        <>
+          {data?.results?.slice(0, 6).map((item) => (
+            <Link href={''} className='w-[16.6%]' key={item?.id}>
+              <img
+                src={`https://image.tmdb.org/t/p/original${item?.poster_path}`}
+                alt={
+                  type === 'movie' ? item?.original_title : item?.original_name
+                }
+                className='rounded-xl mb-2'
+              />
+              <div>
+                <Score score={item?.vote_average * 10} />
+                <h4 className='inline text-xl hover:text-customOrange transition-all'>
+                  {type === 'movie' ? item?.title : item.name}
+                </h4>
+                <p className='text-gray-500'>
+                  {type === 'movie' ? item?.release_date : item?.first_air_date}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </>
+      ) : null}
     </div>
   );
 };

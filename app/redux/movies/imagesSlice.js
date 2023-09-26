@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from '../../axios/index'
 
-export const getImages = createAsyncThunk('movies/getImages', async (param) => {
-  const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/movie/${param}/images`)
+export const getImages = createAsyncThunk('movies/getImages', async (query) => {
+  const response = await axios.get(`/movie/${query}/images`)
   return response.data
 })
 

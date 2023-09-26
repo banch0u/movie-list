@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from '../../axios/index'
 
-export const getTopRated = createAsyncThunk('movies/getTopRated', async (param) => {
-  const response = await axios.get(`/movie/top_rated`, {
+export const getTrendingMovies = createAsyncThunk('trending/getTrendingMovies', async (param) => {
+  const response = await axios.get(`/trending/movie/week`, {
     params: param
   })
   return response.data
 })
 
-export const topRatedSlice = createSlice({
-  name: 'topRated',
+export const moviesSlice = createSlice({
+  name: 'movies',
   initialState: {
     data: [],
     loading: 'idle',
@@ -17,18 +17,18 @@ export const topRatedSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getTopRated.pending, (state, action) => {
+    builder.addCase(getTrendingMovies.pending, (state, action) => {
       if (state.loading === 'idle') {
         state.loading = 'pending'
       }
     })
-    builder.addCase(getTopRated.fulfilled, (state, action) => {
+    builder.addCase(getTrendingMovies.fulfilled, (state, action) => {
       if (state.loading === 'pending') {
         state.data = action.payload
         state.loading = 'idle'
       }
     })
-    builder.addCase(getTopRated.rejected, (state, action) => {
+    builder.addCase(getTrendingMovies.rejected, (state, action) => {
       if (state.loading === 'pending') {
         state.loading = 'idle'
         state.error = 'Error occured'
@@ -36,4 +36,4 @@ export const topRatedSlice = createSlice({
     })
   },
 })
-export default topRatedSlice.reducer
+export default moviesSlice.reducer

@@ -14,7 +14,9 @@ const Score = ({ score }) => {
   };
   return (
     <div className='w-6 h-6 rounded-full bg-customGray inline-flex items-center justify-center text-sm font-bold mr-2'>
-      <span style={{ color: `${determineColor(score)}` }}>{score}</span>
+      <span style={{ color: `${determineColor(score)}` }}>
+        {Math.trunc(score)}
+      </span>
     </div>
   );
 };
