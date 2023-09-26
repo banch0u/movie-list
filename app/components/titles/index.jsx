@@ -8,13 +8,7 @@ import Button from '../UI/button';
 import TitlesItem from '../titlesItem';
 import TrailersItem from '../trailersItem';
 
-interface Props {
-  bg?: boolean;
-  title?: string;
-  type?: string;
-}
-
-const Titles = ({ bg = true, title, type = 'title' }: Props) => {
+const Titles = ({ bg = true, title, type = 'title' }) => {
   return (
     <section
       className='py-16'

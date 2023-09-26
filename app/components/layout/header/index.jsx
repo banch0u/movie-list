@@ -1,7 +1,6 @@
 import React from 'react';
 import Wrapper from '../../UI/wrapper';
 import Link from 'next/link';
-import { SearchIcon } from '@/app/icons';
 import Button from '../../UI/button';
 
 const Header = () => {

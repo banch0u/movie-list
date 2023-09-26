@@ -1,11 +1,6 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-interface Props {
-  children?: ReactNode;
-  rightRound?: boolean;
-}
-
-const Button = ({ children, rightRound = false }: Props) => {
+const Button = ({ children, rightRound = false }) => {
   return (
     <>
       {!rightRound ? (
