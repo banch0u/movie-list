@@ -1,12 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
-export const getUsers = createAsyncThunk('users/getUsers', async (param) => {
-  const response = await axios.get(`https://jsonplaceholder.typicode.com/${param}`)
+import axios from '../../axios/index'
+
+export const getImages = createAsyncThunk('movies/getImages', async (param) => {
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/movie/${param}/images`)
   return response.data
 })
 
-export const usersSlice = createSlice({
-  name: 'users',
+export const imagesSlice = createSlice({
+  name: 'images',
   initialState: {
     data: [],
     loading: 'idle',
@@ -14,18 +15,18 @@ export const usersSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getUsers.pending, (state, action) => {
+    builder.addCase(getImages.pending, (state, action) => {
       if (state.loading === 'idle') {
         state.loading = 'pending'
       }
     })
-    builder.addCase(getUsers.fulfilled, (state, action) => {
+    builder.addCase(getImages.fulfilled, (state, action) => {
       if (state.loading === 'pending') {
         state.data = action.payload
         state.loading = 'idle'
       }
     })
-    builder.addCase(getUsers.rejected, (state, action) => {
+    builder.addCase(getImages.rejected, (state, action) => {
       if (state.loading === 'pending') {
         state.loading = 'idle'
         state.error = 'Error occured'
@@ -33,4 +34,4 @@ export const usersSlice = createSlice({
     })
   },
 })
-export default usersSlice.reducer
+export default imagesSlice.reducer

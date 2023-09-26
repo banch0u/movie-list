@@ -1,7 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import usersReducer from './users/usersSlice'
+import imagesReducer from './movies/imagesSlice'
+import topRatedReducer from './movies/topRatedSlice'
 export default configureStore({
   reducer: {
-    users: usersReducer,
+    movieImages: imagesReducer,
+    movieTopRated: topRatedReducer
   },
 })

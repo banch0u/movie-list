@@ -6,7 +6,7 @@ import './swiper.css';
 import { FreeMode } from 'swiper/modules';
 import Img from '../../assets/images/home.png';
 import Image from 'next/image';
-import { PlayButton } from '@/app/icons';
+import { PlayButton } from '../../icons';
 
 const TrailersItem = () => {
   return (
