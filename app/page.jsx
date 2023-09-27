@@ -10,6 +10,7 @@ import { getUpcoming } from './redux/movies/upcomingSlice';
 import { getOnTheAir } from './redux/tvShows/onTheAirSlice';
 import { getPopularMovies } from './redux/movies/popularSlice';
 import { getPopularTvShows } from './redux/tvShows/popularSlice';
+import { getPopularPeople } from './redux/people/popularSlice';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export default function Home() {
   const onTheAirTvShows = useSelector((state) => state.onTheAirTvShows);
   const popularMovies = useSelector((state) => state.popularMovies);
   const popularTvShows = useSelector((state) => state.popularTvShows);
+  const popularPeople = useSelector((state) => state.popularPeople);
 
   useEffect(() => {
     dispatch(getTrendingMovies({ language: 'en-US' }));
@@ -27,6 +29,7 @@ export default function Home() {
     dispatch(getOnTheAir({ language: 'en-US' }));
     dispatch(getPopularMovies({ language: 'en-US' }));
     dispatch(getPopularTvShows({ language: 'en-US' }));
+    dispatch(getPopularPeople({ language: 'en-US' }));
   }, [dispatch]);
   return (
     <main>
@@ -49,7 +52,7 @@ export default function Home() {
         movieData={popularMovies?.data}
         tvShowData={popularTvShows?.data}
       />
-      <People title={'Popular People'} bg={false} />
+      <People title={'Popular People'} bg={false} data={popularPeople?.data} />
     </main>
   );
 }

@@ -27,10 +27,10 @@ const Titles = ({ bg = true, title, movieData, tvShowData }) => {
             </TabList>
           </div>
           <TabPanel>
-            <TitlesItem data={movieData} type='movie' />
+            <TitlesItem data={movieData} type='movie' bg={bg} />
           </TabPanel>
           <TabPanel>
-            <TitlesItem data={tvShowData} type='tvShow' />
+            <TitlesItem data={tvShowData} type='tvShow' bg={bg} />
           </TabPanel>
         </Tabs>
       </Wrapper>

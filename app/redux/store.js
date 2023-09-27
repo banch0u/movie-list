@@ -8,6 +8,7 @@ import movieVideosReducer from './movies/videosSlice'
 import onTheAirTvShowsReducer from './tvShows/onTheAirSlice'
 import popularMoviesReducer from './movies/popularSlice'
 import popularTvShowsReducer from './tvShows/popularSlice'
+import popularPeopleReducer from './people/popularSlice'
 export default configureStore({
   reducer: {
     movieImages: movieImagesReducer,
@@ -19,5 +20,6 @@ export default configureStore({
     onTheAirTvShows: onTheAirTvShowsReducer,
     popularMovies: popularMoviesReducer,
     popularTvShows: popularTvShowsReducer,
+    popularPeople: popularPeopleReducer,
   },
 })

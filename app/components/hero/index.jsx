@@ -27,8 +27,8 @@ const Hero = () => {
           {data?.results ? (
             <div className='h-[700px] relative'>
               <img
-                src={`https://image.tmdb.org/t/p/original${data?.results[rndTitle].backdrop_path}`}
-                alt={data.results[rndTitle].original_title}
+                src={`https://image.tmdb.org/t/p/original${data?.results[rndTitle]?.backdrop_path}`}
+                alt={data?.results[rndTitle]?.original_title}
                 className='w-full '
               />
               <div className='w-full h-[700px] bg-customGray absolute top-0 left-0 -z-10'></div>

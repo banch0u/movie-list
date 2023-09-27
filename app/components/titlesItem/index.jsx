@@ -5,7 +5,7 @@ import CoverImage from '../../assets/images/title.jpg';
 import Score from '../score';
 import Link from 'next/link';
 
-const TitlesItem = ({ type = 'movie', data }) => {
+const TitlesItem = ({ type = 'movie', data, bg }) => {
   const [load, setLoad] = useState(false);
 
   const parceDate = (dateString) => {
@@ -47,7 +47,7 @@ const TitlesItem = ({ type = 'movie', data }) => {
                 className='rounded-xl mb-2'
               />
               <div>
-                <Score score={item?.vote_average * 10} />
+                <Score score={item?.vote_average * 10} bg={bg} />
                 <h4 className='inline text-xl hover:text-customOrange transition-all'>
                   {type === 'movie' ? item?.title : item.name}
                 </h4>

@@ -12,7 +12,6 @@ import { getVideos } from '../../redux/movies/videosSlice';
 import { getImages } from '../../redux/movies/imagesSlice';
 const TrailersItem = ({ data }) => {
   const [ids, setIds] = useState([]);
-  console.lo;
   return (
     <div>
       <Swiper
