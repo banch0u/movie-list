@@ -1,6 +1,7 @@
 'use client';
 import Hero from './components/hero';
 import Titles from './components/titles';
+import People from './components/people';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTrendingMovies } from './redux/trending/moviesSlice';
@@ -48,6 +49,7 @@ export default function Home() {
         movieData={popularMovies?.data}
         tvShowData={popularTvShows?.data}
       />
+      <People title={'Popular People'} bg={false} />
     </main>
   );
 }
