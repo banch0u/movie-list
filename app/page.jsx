@@ -7,20 +7,25 @@ import { getTrendingMovies } from './redux/trending/moviesSlice';
 import { getTrendingTvShows } from './redux/trending/tvShowsSlice';
 import { getUpcoming } from './redux/movies/upcomingSlice';
 import { getOnTheAir } from './redux/tvShows/onTheAirSlice';
+import { getPopularMovies } from './redux/movies/popularSlice';
+import { getPopularTvShows } from './redux/tvShows/popularSlice';
 
 export default function Home() {
   const dispatch = useDispatch();
-  const [ids, setIds] = useState([]);
   const trendingMovies = useSelector((state) => state.trendingMovies);
   const trendingTvShows = useSelector((state) => state.trendingTvShows);
   const upcomingMovies = useSelector((state) => state.upcomingMovies);
   const onTheAirTvShows = useSelector((state) => state.onTheAirTvShows);
+  const popularMovies = useSelector((state) => state.popularMovies);
+  const popularTvShows = useSelector((state) => state.popularTvShows);
 
   useEffect(() => {
     dispatch(getTrendingMovies({ language: 'en-US' }));
     dispatch(getTrendingTvShows({ language: 'en-US' }));
     dispatch(getUpcoming({ language: 'en-US' }));
     dispatch(getOnTheAir({ language: 'en-US' }));
+    dispatch(getPopularMovies({ language: 'en-US' }));
+    dispatch(getPopularTvShows({ language: 'en-US' }));
   }, [dispatch]);
   return (
     <main>
@@ -37,7 +42,12 @@ export default function Home() {
         movieData={upcomingMovies?.data}
         tvShowData={onTheAirTvShows?.data}
       />
-      <Titles type={'title'} title={"What's Popular"} />
+      <Titles
+        type={'title'}
+        title={"What's Popular"}
+        movieData={popularMovies?.data}
+        tvShowData={popularTvShows?.data}
+      />
     </main>
   );
 }
