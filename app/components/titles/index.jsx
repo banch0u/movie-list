@@ -8,13 +8,7 @@ import Button from '../UI/button';
 import TitlesItem from '../titlesItem';
 import TrailersItem from '../trailersItem';
 
-const Titles = ({
-  bg = true,
-  title,
-  type = 'title',
-  movieData,
-  tvShowData,
-}) => {
+const Titles = ({ bg = true, title, movieData, tvShowData }) => {
   return (
     <section
       className='py-16'
@@ -33,16 +27,10 @@ const Titles = ({
             </TabList>
           </div>
           <TabPanel>
-            {type === 'title' ? (
-              <TitlesItem data={movieData} type='movie' />
-            ) : null}
-            {type === 'trailer' ? <TrailersItem /> : null}
+            <TitlesItem data={movieData} type='movie' />
           </TabPanel>
           <TabPanel>
-            {type === 'title' ? (
-              <TitlesItem data={tvShowData} type='tvShow' />
-            ) : null}
-            {type === 'trailer' ? <TrailersItem /> : null}
+            <TitlesItem data={tvShowData} type='tvShow' />
           </TabPanel>
         </Tabs>
       </Wrapper>

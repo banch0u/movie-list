@@ -7,6 +7,29 @@ import Link from 'next/link';
 
 const TitlesItem = ({ type = 'movie', data }) => {
   const [load, setLoad] = useState(false);
+
+  const parceDate = (dateString) => {
+    const tempDate = new Date(dateString);
+    const monthNames = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+    const year = tempDate.getFullYear();
+    const month = tempDate.getMonth();
+    const day = tempDate.getDate();
+    return day + ' ' + monthNames[month] + ' ' + year;
+  };
+
   useEffect(() => {
     data ? setLoad(true) : null;
   }, [data]);
@@ -29,7 +52,9 @@ const TitlesItem = ({ type = 'movie', data }) => {
                   {type === 'movie' ? item?.title : item.name}
                 </h4>
                 <p className='text-gray-500'>
-                  {type === 'movie' ? item?.release_date : item?.first_air_date}
+                  {type === 'movie'
+                    ? parceDate(item?.release_date)
+                    : parceDate(item?.first_air_date)}
                 </p>
               </div>
             </Link>

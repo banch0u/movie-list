@@ -1,13 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit'
-import imagesReducer from './movies/imagesSlice'
-import topRatedReducer from './movies/topRatedSlice'
-import moviesReducer from './trending/moviesSlice'
-import tvShowsReducer from './trending/tvShowsSlice'
+import movieImagesReducer from './movies/imagesSlice'
+import topRatedMoviesReducer from './movies/topRatedSlice'
+import trendingMoviesReducer from './trending/moviesSlice'
+import trendingTvShowsReducer from './trending/tvShowsSlice'
+import upcomingMoviesReducer from './movies/upcomingSlice'
+import movieVideosReducer from './movies/videosSlice'
+import onTheAirTvShowsReducer from './tvShows/onTheAirSlice'
 export default configureStore({
   reducer: {
-    movieImages: imagesReducer,
-    movieTopRated: topRatedReducer,
-    trendingMovies: moviesReducer,
-    trendingTvShows: tvShowsReducer,
+    movieImages: movieImagesReducer,
+    movieTopRated: topRatedMoviesReducer,
+    trendingMovies: trendingMoviesReducer,
+    trendingTvShows: trendingTvShowsReducer,
+    upcomingMovies: upcomingMoviesReducer,
+    movieVideos: movieVideosReducer,
+    onTheAirTvShows: onTheAirTvShowsReducer,
   },
 })
