@@ -1,0 +1,42 @@
+.MuiPagination-ul li button {
+  background-color: #1f1f1f;
+  color: white;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  min-width: 47px;
+  height: 47px;
+  padding: 0 6px;
+  margin: 0 3px;
+}
+
+.MuiPagination-ul li div {
+  background-color: #1f1f1f;
+  color: white;
+  border: none;
+  height: 100%;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 2.3;
+  border-radius: 4px;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 700;
+  min-width: 47px;
+  height: 47px;
+  padding: 0 6px;
+  margin: 0 3px;
+
+}
+
+.MuiPagination-ul li .Mui-selected {
+  background-color: #F9B423;
+  color: black;
+}
+
+
+.MuiPagination-ul li button:hover {
+  background-color: #1f1f1f;
+  color: white;
+}

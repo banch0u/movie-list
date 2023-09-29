@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.11",
     "@reduxjs/toolkit": "^1.9.6",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@types/node": "20.6.3",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
@@ -21,6 +25,7 @@
     "postcss": "8.4.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-paginate": "^8.2.0",
     "react-redux": "^8.1.2",
     "react-tabs": "^6.0.2",
     "swiper": "^10.3.0",

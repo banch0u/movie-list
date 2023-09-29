@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Wrapper from '../UI/wrapper';
 import Button from '../UI/button';
+import SearchBar from '../searchBar';
 import { getTopRated } from '../../redux/movies/topRatedSlice';
 
 const Hero = () => {
@@ -47,14 +48,7 @@ const Hero = () => {
             Movies are the gateway to discover new worlds, and in each frame, we
             find a piece of our own.
           </p>
-          <form action='' className='flex text-black'>
-            <input
-              type='text'
-              placeholder='Search for a movie, tv show...'
-              className='rounded-l-lg w-full px-4 outline-customOrange'
-            />
-            <Button rightRound={true}>Search</Button>
-          </form>
+          <SearchBar />
         </Wrapper>
       </div>
     </section>

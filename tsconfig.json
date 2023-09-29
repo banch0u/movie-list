@@ -26,8 +26,10 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "app/icons/index.jsx"  ],
+    "**/*.tsx",
+    "app/icons/index.jsx",
+    "build/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

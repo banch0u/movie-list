@@ -9,6 +9,10 @@ import onTheAirTvShowsReducer from './tvShows/onTheAirSlice'
 import popularMoviesReducer from './movies/popularSlice'
 import popularTvShowsReducer from './tvShows/popularSlice'
 import popularPeopleReducer from './people/popularSlice'
+import multiSearchReducer from './search/multiSlice'
+import movieSearchReducer from './search/movieSlice'
+import tvShowSearchReducer from './search/tvShowSlice'
+import personSearchReducer from './search/personSlice'
 export default configureStore({
   reducer: {
     movieImages: movieImagesReducer,
@@ -21,5 +25,9 @@ export default configureStore({
     popularMovies: popularMoviesReducer,
     popularTvShows: popularTvShowsReducer,
     popularPeople: popularPeopleReducer,
+    multiSearch: multiSearchReducer,
+    movieSearch: movieSearchReducer,
+    tvShowSearch: tvShowSearchReducer,
+    personSearch: personSearchReducer
   },
 })
