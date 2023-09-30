@@ -13,6 +13,8 @@ import multiSearchReducer from './search/multiSlice'
 import movieSearchReducer from './search/movieSlice'
 import tvShowSearchReducer from './search/tvShowSlice'
 import personSearchReducer from './search/personSlice'
+import multiBarSearchReducer from './search/multiBarSlice'
+
 export default configureStore({
   reducer: {
     movieImages: movieImagesReducer,
@@ -28,6 +30,7 @@ export default configureStore({
     multiSearch: multiSearchReducer,
     movieSearch: movieSearchReducer,
     tvShowSearch: tvShowSearchReducer,
-    personSearch: personSearchReducer
+    personSearch: personSearchReducer,
+    multiBarSearch: multiBarSearchReducer,
   },
 })

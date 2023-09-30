@@ -3,7 +3,6 @@ import Button from '../UI/button';
 const SearchBar = () => {
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
     window.location.replace(`/search/${e.target[0].value}`);
   };
 
