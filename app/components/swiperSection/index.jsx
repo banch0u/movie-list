@@ -11,7 +11,8 @@ import Image from 'next/image';
 import Wrapper from '../UI/wrapper';
 import Title from '../UI/title';
 import Link from 'next/link';
-const swiperSection = ({ bg = true, title, type = 'slide' }) => {
+const swiperSection = ({ bg = true, title, type = 'slide', data }) => {
+  console.log(data);
   return (
     <section
       className='py-16'
@@ -27,80 +28,31 @@ const swiperSection = ({ bg = true, title, type = 'slide' }) => {
               pagination={false}
               modules={[FreeMode]}
               className='mySwiper mt-4 mb-2'>
-              <SwiperSlide>
-                <Image src={Img} alt='' className='rounded-t-xl' />
-                <div className='bg-black rounded-b-xl p-2 text-sm'>
-                  <p className='font-semibold'>Gary Oldman</p>
-                  <p className='font-light'>James Gordon</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={Img} alt='' className='rounded-t-xl' />
-                <div className='bg-black rounded-b-xl p-2 text-sm'>
-                  <p className='font-semibold'>Gary Oldman</p>
-                  <p className='font-light'>James Gordon</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Link href={''}>
-                  <Image src={Img} alt='' className='rounded-t-xl' />
-                </Link>
-                <div className='bg-black rounded-b-xl p-2 text-sm'>
+              {data?.cast?.slice(0, 10).map((item) => (
+                <SwiperSlide key={item.id}>
                   <Link href={''}>
-                    <p className='font-semibold'>Gary Oldman</p>
+                    {item.profile_path ? (
+                      <img
+                        src={
+                          process.env.NEXT_PUBLIC_STORAGE + item.profile_path
+                        }
+                        alt={item.id}
+                        className='rounded-t-xl'
+                      />
+                    ) : (
+                      <Image
+                        src={Img}
+                        alt='no_image'
+                        className='rounded-t-xl'
+                      />
+                    )}
+                    <div className='bg-black rounded-b-xl p-2 text-sm'>
+                      <p className='font-semibold'>{item.name}</p>
+                      <p className='font-light'>{item.character}</p>
+                    </div>
                   </Link>
-                  <p className='font-light'>James Gordon</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={Img} alt='' className='rounded-t-xl' />
-                <div className='bg-black rounded-b-xl p-2 text-sm'>
-                  <p className='font-semibold'>Gary Oldman</p>
-                  <p className='font-light'>James Gordon</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={Img} alt='' className='rounded-t-xl' />
-                <div className='bg-black rounded-b-xl p-2 text-sm'>
-                  <p className='font-semibold'>Gary Oldman</p>
-                  <p className='font-light'>James Gordon</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={Img} alt='' className='rounded-t-xl' />
-                <div className='bg-black rounded-b-xl p-2 text-sm'>
-                  <p className='font-semibold'>Gary Oldman</p>
-                  <p className='font-light'>James Gordon</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={Img} alt='' className='rounded-t-xl' />
-                <div className='bg-black rounded-b-xl p-2 text-sm'>
-                  <p className='font-semibold'>Gary Oldman</p>
-                  <p className='font-light'>James Gordon</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={Img} alt='' className='rounded-t-xl' />
-                <div className='bg-black rounded-b-xl p-2 text-sm'>
-                  <p className='font-semibold'>Gary Oldman</p>
-                  <p className='font-light'>James Gordon</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={Img} alt='' className='rounded-t-xl' />
-                <div className='bg-black rounded-b-xl p-2 text-sm'>
-                  <p className='font-semibold'>Gary Oldman</p>
-                  <p className='font-light'>James Gordon</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={Img} alt='' className='rounded-t-xl' />
-                <div className='bg-black rounded-b-xl p-2 text-sm'>
-                  <p className='font-semibold'>Gary Oldman</p>
-                  <p className='font-light'>James Gordon</p>
-                </div>
-              </SwiperSlide>
+                </SwiperSlide>
+              ))}
             </Swiper>
             <div className='flex justify-end'>
               <Link

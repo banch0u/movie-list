@@ -14,6 +14,9 @@ import movieSearchReducer from './search/movieSlice'
 import tvShowSearchReducer from './search/tvShowSlice'
 import personSearchReducer from './search/personSlice'
 import multiBarSearchReducer from './search/multiBarSlice'
+import movieDetailsReducer from './movies/detailsSlice'
+import movieExternalLinksReducer from './movies/externalLinksSlice'
+import movieCreditsReducer from './movies/creditsSlice';
 
 export default configureStore({
   reducer: {
@@ -32,5 +35,8 @@ export default configureStore({
     tvShowSearch: tvShowSearchReducer,
     personSearch: personSearchReducer,
     multiBarSearch: multiBarSearchReducer,
+    movieDetails: movieDetailsReducer,
+    movieExternalLinks: movieExternalLinksReducer,
+    movieCredits: movieCreditsReducer,
   },
 })
