@@ -9,7 +9,7 @@ export const getMovieCredits = createAsyncThunk('movies/getMovieCredits', async 
 })
 
 export const creditSlice = createSlice({
-  name: 'movieCredits',
+  name: 'credits',
   initialState: {
     data: [],
     loading: 'idle',

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from '../../axios/index'
 
-export const getVideos = createAsyncThunk('movies/getVideos', async (query, param) => {
+export const getMovieVideos = createAsyncThunk('movies/getMovieVideos', async (query, param) => {
   const response = await axios.get(`/movie/${query}/videos`, {
     params: param
   })
@@ -17,18 +17,18 @@ export const videosSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getVideos.pending, (state, action) => {
+    builder.addCase(getMovieVideos.pending, (state, action) => {
       if (state.loading === 'idle') {
         state.loading = 'pending'
       }
     })
-    builder.addCase(getVideos.fulfilled, (state, action) => {
+    builder.addCase(getMovieVideos.fulfilled, (state, action) => {
       if (state.loading === 'pending') {
         state.data = action.payload
         state.loading = 'idle'
       }
     })
-    builder.addCase(getVideos.rejected, (state, action) => {
+    builder.addCase(getMovieVideos.rejected, (state, action) => {
       if (state.loading === 'pending') {
         state.loading = 'idle'
         state.error = 'Error occured'

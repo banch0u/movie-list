@@ -9,7 +9,7 @@ export const getMovieDetails = createAsyncThunk('movies/getMovieDetails', async 
 })
 
 export const detailsSlice = createSlice({
-  name: 'movieDetails',
+  name: 'details',
   initialState: {
     data: [],
     loading: 'idle',

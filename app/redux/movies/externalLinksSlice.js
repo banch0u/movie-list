@@ -7,7 +7,7 @@ export const getMovieExternalLinks = createAsyncThunk('movies/getMovieExternalLi
 })
 
 export const externalLinksSlice = createSlice({
-  name: 'movieExternalLinks',
+  name: 'externalLinks',
   initialState: {
     data: [],
     loading: 'idle',
