@@ -6,7 +6,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import './tabs.css';
 import Button from '../UI/button';
 import TitlesItem from '../titlesItem';
-import TrailersItem from '../trailersItem';
+import TrailersItem from '../swiperSection';
 
 const Titles = ({ bg = true, title, movieData, tvShowData }) => {
   return (

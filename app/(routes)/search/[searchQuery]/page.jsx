@@ -60,7 +60,7 @@ const SearchId = () => {
     );
   }, [dispatch, page]);
   return (
-    <div className='pb-16'>
+    <main className='pb-16'>
       <Wrapper>
         <Title link={false}>Search</Title>
         <div className='w-4/6 m-auto mb-4'>
@@ -149,7 +149,7 @@ const SearchId = () => {
           </TabPanel>
         </Tabs>
       </Wrapper>
-    </div>
+    </main>
   );
 };
 
