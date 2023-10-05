@@ -6,7 +6,7 @@ import 'swiper/css/free-mode';
 import './swiper.css';
 import { FreeMode } from 'swiper/modules';
 import Img from '../../assets/images/no_image_dark.png';
-import Img2 from '../../assets/images/home.png';
+import Img2 from '../../assets/images/no_image_dark_16_9.png';
 import Image from 'next/image';
 import Wrapper from '../UI/wrapper';
 import Title from '../UI/title';
@@ -27,7 +27,6 @@ const swiperSection = ({
   const closeModal = () => {
     setModalKey('');
   };
-  // console.log(videos);
   return (
     <section
       className='py-16'
@@ -68,14 +67,18 @@ const swiperSection = ({
                   </Link>
                 </SwiperSlide>
               ))}
+              <SwiperSlide>
+                <div
+                  style={{ aspectRatio: 15453 / 28780 }}
+                  className='w-[154.53px] flex items-center'>
+                  <Link
+                    href={''}
+                    className='text-xl hover:text-customOrange transition-all '>
+                    Show more
+                  </Link>
+                </div>
+              </SwiperSlide>
             </Swiper>
-            <div className='flex justify-end'>
-              <Link
-                href={''}
-                className='text-xl hover:text-customOrange transition-all'>
-                Show more...
-              </Link>
-            </div>
           </>
         ) : null}
         {type === 'slide' ? (
@@ -112,6 +115,35 @@ const swiperSection = ({
                     className='rounded-xl'
                   />
                   {/* <p className='text-xl font-semibold mt-4'>Game of Thrones</p> */}
+                </SwiperSlide>
+              ))}
+              {data?.results?.slice(0, 10).map((item) => (
+                <SwiperSlide key={item.id}>
+                  {item?.backdrop_path ? (
+                    <Link href={`/movie/${item.id}`}>
+                      <img
+                        src={
+                          process.env.NEXT_PUBLIC_STORAGE + item?.backdrop_path
+                        }
+                        alt={item.id}
+                        className='rounded-xl mb-4'
+                      />
+                    </Link>
+                  ) : (
+                    <Link href={`/movie/${item.id}`}>
+                      <Image
+                        src={Img2}
+                        alt='no_image'
+                        className='rounded-xl mb-4'
+                      />
+                    </Link>
+                  )}
+
+                  <Link
+                    href={`/movie/${item.id}`}
+                    className='text-xl font-semibold mt-4 hover:text-customOrange transition-all'>
+                    {item.title}
+                  </Link>
                 </SwiperSlide>
               ))}
             </Swiper>

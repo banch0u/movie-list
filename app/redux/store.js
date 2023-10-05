@@ -17,6 +17,8 @@ import multiBarSearchReducer from './search/multiBarSlice'
 import movieDetailsReducer from './movies/detailsSlice'
 import movieExternalLinksReducer from './movies/externalLinksSlice'
 import movieCreditsReducer from './movies/creditsSlice';
+import movieReviewsReducer from './movies/reviewsSice'
+import similarMoviesReducer from './movies/similarSlice'
 
 export default configureStore({
   reducer: {
@@ -38,5 +40,7 @@ export default configureStore({
     movieDetails: movieDetailsReducer,
     movieExternalLinks: movieExternalLinksReducer,
     movieCredits: movieCreditsReducer,
+    movieReviews: movieReviewsReducer,
+    similarMovies: similarMoviesReducer,
   },
 })

@@ -98,7 +98,7 @@ const InfoCard = ({ movieDetails, movieExternalLinks }) => {
                 </span>
               </p>
             ) : null} */}
-            {movieDetails?.production_companies ? (
+            {movieDetails?.production_companies?.length > 0 ? (
               <p>
                 Studio:{' '}
                 <span className='font-light'>

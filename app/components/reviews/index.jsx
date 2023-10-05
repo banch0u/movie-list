@@ -2,7 +2,30 @@ import React from 'react';
 import Wrapper from '../UI/wrapper';
 import Title from '../UI/title';
 import { DefaultProfile } from '../../icons';
-const Reviews = ({ bg = true }) => {
+import ShowMoreContent from '../UI/showMoreContent';
+const Reviews = ({ bg = true, data }) => {
+  const parceDate = (dateString) => {
+    const tempDate = new Date(dateString);
+    const monthNames = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+    const year = tempDate.getFullYear();
+    const month = tempDate.getMonth();
+    const day = tempDate.getDate();
+    return day + ' ' + monthNames[month] + ' ' + year;
+  };
+
   return (
     <section
       className='py-16'
@@ -10,63 +33,33 @@ const Reviews = ({ bg = true }) => {
       <Wrapper>
         <Title link={false}>Reviews</Title>
         <div className='mt-2 flex flex-col gap-3'>
-          <>
-            <div className='flex gap-2 mb-1 items-center'>
-              <DefaultProfile />
-              <p className='text-xl font-medium'>Username</p>
+          {data?.results?.slice(0, 3).map((item) => (
+            <div key={item.id}>
+              <div className='flex gap-2 mb-1 items-center'>
+                {item?.author_details?.avatar_path ? (
+                  <div className='w-[30px] h-[30px] rounded-full overflow-hidden'>
+                    <img
+                      src={
+                        process.env.NEXT_PUBLIC_STORAGE +
+                        item?.author_details?.avatar_path
+                      }
+                      alt={item?.author_details?.username}
+                    />
+                  </div>
+                ) : (
+                  <DefaultProfile />
+                )}
+
+                <p className='text-xl font-medium'>
+                  {item?.author_details?.username}
+                </p>
+              </div>
+              <ShowMoreContent id={item.id}>{item?.content}</ShowMoreContent>
+              <div className='flex justify-end'>
+                <p className='font-light'>{parceDate(item?.created_at)}</p>
+              </div>
             </div>
-            <p className='font-light'>
-              Check out the full spoiler free review at Sunshine State Cineplex.
-              \r\nhttps://sunshinestatecineplex.com/2023/03/13/sxsw-2023-john-wick-chapter-4-2023/\r\n\r\nJohn
-              Wick: Chapter 4 might be a little long, but when it is fun, there
-              are few films that can compete with its magnetism. Reeves shows
-              why he’s one of the best genre actors in the world and pours his
-              heart and soul into a soft-spoken performance. Combined with
-              Stahelski’s fight sequences, this is sure to become a highly
-              rewatched, often quoted classic.
-            </p>
-            <div className='flex justify-end'>
-              <p className='font-light'>Jun 9 2015</p>
-            </div>
-          </>
-          <>
-            <div className='flex gap-2 mb-1 items-center'>
-              <DefaultProfile />
-              <p className='text-xl font-medium'>Username</p>
-            </div>
-            <p className='font-light'>
-              Check out the full spoiler free review at Sunshine State Cineplex.
-              \r\nhttps://sunshinestatecineplex.com/2023/03/13/sxsw-2023-john-wick-chapter-4-2023/\r\n\r\nJohn
-              Wick: Chapter 4 might be a little long, but when it is fun, there
-              are few films that can compete with its magnetism. Reeves shows
-              why he’s one of the best genre actors in the world and pours his
-              heart and soul into a soft-spoken performance. Combined with
-              Stahelski’s fight sequences, this is sure to become a highly
-              rewatched, often quoted classic.
-            </p>
-            <div className='flex justify-end'>
-              <p className='font-light'>Jun 9 2015</p>
-            </div>
-          </>
-          <>
-            <div className='flex gap-2 mb-1 items-center'>
-              <DefaultProfile />
-              <p className='text-xl font-medium'>Username</p>
-            </div>
-            <p className='font-light'>
-              Check out the full spoiler free review at Sunshine State Cineplex.
-              \r\nhttps://sunshinestatecineplex.com/2023/03/13/sxsw-2023-john-wick-chapter-4-2023/\r\n\r\nJohn
-              Wick: Chapter 4 might be a little long, but when it is fun, there
-              are few films that can compete with its magnetism. Reeves shows
-              why he’s one of the best genre actors in the world and pours his
-              heart and soul into a soft-spoken performance. Combined with
-              Stahelski’s fight sequences, this is sure to become a highly
-              rewatched, often quoted classic.
-            </p>
-            <div className='flex justify-end'>
-              <p className='font-light'>Jun 9 2015</p>
-            </div>
-          </>
+          ))}
         </div>
       </Wrapper>
     </section>

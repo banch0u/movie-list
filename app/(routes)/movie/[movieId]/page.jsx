@@ -12,6 +12,8 @@ import { getMovieCredits } from '../../../redux/movies/creditsSlice';
 import { useParams } from 'next/navigation';
 import { getMovieImages } from '../../../redux/movies/imagesSlice';
 import { getMovieVideos } from '../../../redux/movies/videosSlice';
+import { getMovieReviews } from '../../../redux/movies/reviewsSice';
+import { getSimilarMovies } from '../../../redux/movies/similarSlice';
 const Movie = () => {
   const { movieId } = useParams();
   const dispatch = useDispatch();
@@ -20,6 +22,8 @@ const Movie = () => {
   const movieCredits = useSelector((state) => state.movieCredits);
   const movieImages = useSelector((state) => state.movieImages);
   const movieVideos = useSelector((state) => state.movieVideos);
+  const movieReviews = useSelector((state) => state.movieReviews);
+  const similarMovies = useSelector((state) => state.similarMovies);
 
   useEffect(() => {
     dispatch(getMovieDetails(movieId, { language: 'en-US' }));
@@ -27,6 +31,8 @@ const Movie = () => {
     dispatch(getMovieCredits(movieId, { language: 'en-US' }));
     dispatch(getMovieImages(movieId));
     dispatch(getMovieVideos(movieId, { language: 'en-US' }));
+    dispatch(getMovieReviews(movieId, { language: 'en-US', page: '1' }));
+    dispatch(getSimilarMovies(movieId, { language: 'en-US', page: '1' }));
   }, [dispatch]);
   return (
     <main>
@@ -48,8 +54,12 @@ const Movie = () => {
         images={movieImages?.data}
         videos={movieVideos?.data}
       />
-      <Reviews bg={false} />
-      <SwiperSection title={'Similar to'} type={'slide'} />
+      <Reviews bg={false} data={movieReviews?.data} />
+      <SwiperSection
+        title={'Similar to'}
+        type={'slide'}
+        data={similarMovies?.data}
+      />
     </main>
   );
 };
