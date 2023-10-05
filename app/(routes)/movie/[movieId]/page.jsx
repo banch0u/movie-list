@@ -37,8 +37,8 @@ const Movie = () => {
   return (
     <main>
       <InfoCard
-        movieDetails={movieDetails?.data}
-        movieExternalLinks={movieExternalLinks?.data}
+        details={movieDetails?.data}
+        externalLinks={movieExternalLinks?.data}
       />
       <Slogan tagline={movieDetails?.data?.tagline} />
       <Overview overview={movieDetails?.data?.overview} />

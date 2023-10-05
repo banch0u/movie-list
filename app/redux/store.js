@@ -16,9 +16,13 @@ import personSearchReducer from './search/personSlice'
 import multiBarSearchReducer from './search/multiBarSlice'
 import movieDetailsReducer from './movies/detailsSlice'
 import movieExternalLinksReducer from './movies/externalLinksSlice'
-import movieCreditsReducer from './movies/creditsSlice';
+import movieCreditsReducer from './movies/creditsSlice'
 import movieReviewsReducer from './movies/reviewsSice'
 import similarMoviesReducer from './movies/similarSlice'
+import personDetailsReducer from './people/detailsSlice'
+import personExternalLinksReducer from './people/externalLinksSlice'
+import personCombinedCreditsReducer from './people/combinedCreditsSlice'
+import personImagesReducer from './people/imagesSlice'
 
 export default configureStore({
   reducer: {
@@ -42,5 +46,10 @@ export default configureStore({
     movieCredits: movieCreditsReducer,
     movieReviews: movieReviewsReducer,
     similarMovies: similarMoviesReducer,
+    personDetails: personDetailsReducer,
+    personExternalLinks: personExternalLinksReducer,
+    personCombinedCredits: personCombinedCreditsReducer,
+    personImages: personImagesReducer
+
   },
 })
