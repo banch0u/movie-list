@@ -12,7 +12,9 @@ const Card = ({ data, type }) => {
     }
   }, []);
   return (
-    <Link href={''} className='bg-customGray rounded-lg p-4 flex gap-6'>
+    <Link
+      href={newArr?.media_type === 'movie' ? `/movie/${newArr?.id}` : ''}
+      className='bg-customGray rounded-lg p-4 flex gap-6'>
       {newArr?.poster_path || newArr?.profile_path ? (
         <img
           src={

@@ -38,7 +38,10 @@ const TitlesItem = ({ type = 'movie', data, bg }) => {
       {load ? (
         <>
           {data?.results?.slice(0, 6).map((item) => (
-            <Link href={''} className='w-[16.6%]' key={item?.id}>
+            <Link
+              href={type === 'movie' ? `/movie/${item.id}` : ''}
+              className='w-[16.6%]'
+              key={item?.id}>
               <img
                 src={`https://image.tmdb.org/t/p/original${item?.poster_path}`}
                 alt={

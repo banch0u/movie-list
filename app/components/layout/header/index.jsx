@@ -71,7 +71,11 @@ const Header = () => {
                     <div className='bg-customGray text-white absolute top-16 z-30 w-80 p-4 rounded-lg flex flex-col gap-2 border border-black'>
                       {data?.results?.slice(0, 4).map((item) => (
                         <Link
-                          href={''}
+                          href={
+                            item?.media_type === 'movie'
+                              ? `/movie/${item.id}`
+                              : ''
+                          }
                           onClick={() => setQuery('')}
                           className='flex gap-2'>
                           {item?.poster_path || item?.profile_path ? (
