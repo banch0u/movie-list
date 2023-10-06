@@ -307,7 +307,8 @@ const InfoCard = ({ details, externalLinks, type = 'movie', credits }) => {
                       {externalLinks?.tiktok_id ? (
                         <Link
                           href={
-                            'https://www.tiktok.com/' + externalLinks?.tiktok_id
+                            'https://www.tiktok.com/@' +
+                            externalLinks?.tiktok_id
                           }
                           target='_blank'>
                           <TikTokIcon />

@@ -48,7 +48,7 @@ const swiperSection = ({
                 <>
                   {data?.cast?.slice(0, 10).map((item) => (
                     <SwiperSlide key={item.id}>
-                      <Link href={''}>
+                      <Link href={`/person/${item.id}`}>
                         {item.profile_path ? (
                           <img
                             src={

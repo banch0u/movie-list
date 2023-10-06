@@ -17,7 +17,7 @@ const People = ({ bg = true, title, data }) => {
           {data?.results?.slice(0, 12).map((item) => {
             return (
               <Link
-                href={''}
+                href={`/person/${item?.id}`}
                 className='flex items-center gap-4'
                 key={item?.id}>
                 <div className='w-[80px] h-[80px] overflow-hidden rounded-full'>
