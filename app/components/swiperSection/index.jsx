@@ -28,7 +28,6 @@ const swiperSection = ({
   const closeModal = () => {
     setModalKey('');
   };
-  console.log(data);
   return (
     <section
       className='py-16'
@@ -117,7 +116,12 @@ const swiperSection = ({
                 <>
                   {data?.crew?.slice(0, 10).map((item) => (
                     <SwiperSlide key={item.id}>
-                      <Link href={''}>
+                      <Link
+                        href={
+                          item?.media_type === 'movie'
+                            ? `/movie/${item.id}`
+                            : ''
+                        }>
                         {item.poster_path ? (
                           <img
                             src={

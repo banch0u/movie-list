@@ -22,6 +22,7 @@ const Movie = () => {
   const personImages = useSelector((state) => state.personImages);
   const getMostPopularCharacter = (data, dep) => {
     let ans = '';
+    ans = undefined;
     if (dep === 'Acting') {
       const sortedCastDescending = data?.cast
         ?.slice()
@@ -40,7 +41,9 @@ const Movie = () => {
           break;
         }
       }
-      ans = filteredCast?.[0].character;
+      if (filteredCast && filteredCast.length > 0) {
+        ans = filteredCast[0].character;
+      }
     } else {
       const sortedCastDescending = data?.crew
         ?.slice()
@@ -58,7 +61,9 @@ const Movie = () => {
           break;
         }
       }
-      ans = filteredCast?.[0].job;
+      if (filteredCast && filteredCast.length > 0) {
+        ans = filteredCast[0].job;
+      }
     }
     return ans;
   };
@@ -84,24 +89,38 @@ const Movie = () => {
       }
       ans = { cast: filteredCast };
     } else {
-      const sortedCastDescending = data?.crew
+      const sortedCrewDescending = data?.crew
         ?.slice()
         .sort((a, b) => b.vote_average - a.vote_average);
       let vote = 1000;
-      let filteredCast = sortedCastDescending?.filter(
-        (item) => item.vote_count > 1000
-      );
-      while (filteredCast?.length < 11) {
-        filteredCast = sortedCastDescending?.filter(
-          (item) => item.vote_count > vote
-        );
+      const encounteredTitles = new Set();
+      let filteredCrew = [];
+      sortedCrewDescending?.forEach((item) => {
+        if (!encounteredTitles.has(item.title)) {
+          encounteredTitles.add(item.title);
+          if (item.vote_count > vote) {
+            filteredCrew.push(item);
+          }
+        }
+      });
+      while (filteredCrew?.length < 11) {
+        filteredCrew = sortedCrewDescending
+          ?.filter((item) => item.vote_count > vote)
+          .filter((item) => {
+            if (!encounteredTitles.has(item.title)) {
+              encounteredTitles.add(item.title);
+              return true;
+            }
+            return false;
+          });
         vote -= 100;
         if (vote < 0) {
           break;
         }
       }
-      ans = { crew: filteredCast };
+      ans = { crew: filteredCrew };
     }
+    console.log(data, ans);
     return ans;
   };
 

@@ -32,6 +32,22 @@ const InfoCard = ({ details, externalLinks, type = 'movie', credits }) => {
     }).format(num);
     return formatter;
   };
+  const getKnownDepartment = (dep) => {
+    switch (dep) {
+      case 'Acting':
+        return 'Actor';
+      case 'Directing':
+        return 'Director';
+      case 'Sound':
+        return 'Composer';
+      case 'Production':
+        return 'Producer';
+      case 'Writing':
+        return 'Writer';
+      default:
+        return dep;
+    }
+  };
   return (
     <section className='mb-16'>
       {type === 'movie' ? (
@@ -208,7 +224,7 @@ const InfoCard = ({ details, externalLinks, type = 'movie', credits }) => {
                 <p>
                   Occupation:{' '}
                   <span className='font-light'>
-                    {details?.known_for_department}
+                    {getKnownDepartment(details?.known_for_department)}
                   </span>
                 </p>
               ) : null}

@@ -5,6 +5,22 @@ import Image from 'next/image';
 
 const Card = ({ data, type }) => {
   const [newArr, setNewArr] = useState(null);
+  const getKnownDepartment = (dep) => {
+    switch (dep) {
+      case 'Acting':
+        return 'Actor';
+      case 'Directing':
+        return 'Director';
+      case 'Sound':
+        return 'Composer';
+      case 'Production':
+        return 'Producer';
+      case 'Writing':
+        return 'Writer';
+      default:
+        return dep;
+    }
+  };
   useEffect(() => {
     setNewArr(data);
     if (type) {
@@ -44,24 +60,7 @@ const Card = ({ data, type }) => {
         <p className='text-base font-normal text-[#656565]'>
           {newArr?.media_type === 'movie' ? 'Movie' : null}
           {newArr?.media_type === 'tv' ? 'Tv Show' : null}
-
-          {newArr?.known_for_department === 'Acting' ? 'Actor' : null}
-          {newArr?.known_for_department === 'Directing' ? 'Director' : null}
-          {newArr?.known_for_department === 'Sound' ? 'Composer' : null}
-          {newArr?.known_for_department === 'Production' ? 'Producer' : null}
-          {newArr?.known_for_department === 'Writing' ? 'Writer' : null}
-          {newArr?.known_for_department === 'Visual Effects'
-            ? 'Visual Effects'
-            : null}
-          {newArr?.known_for_department === 'Camera' ? 'Camera' : null}
-          {newArr?.known_for_department === 'Art' ? 'Art' : null}
-          {newArr?.known_for_department === 'Creator' ? 'Creator' : null}
-          {newArr?.known_for_department === 'Crew' ? 'Crew' : null}
-          {newArr?.known_for_department === 'Costume & Make-Up'
-            ? 'Costume & Make-Up'
-            : null}
-          {newArr?.known_for_department === 'Lighting' ? 'Lighting' : null}
-          {newArr?.known_for_department === 'Editing' ? 'Editing' : null}
+          {getKnownDepartment(newArr?.known_for_department)}
         </p>
         <p className='text-base font-normal text-[#656565] line-clamp-4'>
           {newArr?.media_type === 'movie' ? newArr?.overview : null}
