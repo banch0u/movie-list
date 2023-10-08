@@ -18,7 +18,11 @@ const InfoCard = ({ details, externalLinks, type = 'movie', credits }) => {
   const calculateDuration = (min) => {
     let h = Math.trunc(min / 60);
     let m = min % 60;
-    return `${h}h ${m}m`;
+    if (h === 0) {
+      return `${m}m`;
+    } else {
+      return `${h}h ${m}m`;
+    }
   };
   const formCommas = (arr) => {
     let str = '';
