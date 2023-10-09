@@ -24,6 +24,9 @@ import personExternalLinksReducer from './people/externalLinksSlice'
 import personCombinedCreditsReducer from './people/combinedCreditsSlice'
 import personImagesReducer from './people/imagesSlice'
 import tvShowDetailsReducer from './tvShows/detailsSlice'
+import tvShowsExternalLinksReducer from './tvShows/externalLinksSlice'
+import tvShowCombinedCreditsReducer from './tvShows/combinedCreditsSlice'
+import tvShowSeasonDetailsReducer from './tvShows/seasonDetailsSlice'
 
 export default configureStore({
   reducer: {
@@ -51,7 +54,10 @@ export default configureStore({
     personExternalLinks: personExternalLinksReducer,
     personCombinedCredits: personCombinedCreditsReducer,
     personImages: personImagesReducer,
-    tvShowDetails: tvShowDetailsReducer
+    tvShowDetails: tvShowDetailsReducer,
+    tvShowExternalLinks: tvShowsExternalLinksReducer,
+    tvShowCombinedCredits: tvShowCombinedCreditsReducer,
+    tvShowSeasonDetails: tvShowSeasonDetailsReducer
 
   },
 })

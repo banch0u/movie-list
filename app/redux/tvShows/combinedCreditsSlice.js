@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from '../../axios/index'
 
-export const getMovieCredits = createAsyncThunk('movies/getMovieCredits', async (query, param) => {
-  const response = await axios.get(`/movie/${query}/credits`, {
+export const getTvShowCombinedCredits = createAsyncThunk('tvShows/getTvShowCombinedCredits', async (query, param) => {
+  const response = await axios.get(`/tv/${query}/aggregate_credits`, {
     params: param
   })
   return response.data
 })
 
-export const creditsSlice = createSlice({
-  name: 'credits',
+export const combinedCreditsSlice = createSlice({
+  name: 'combinedCredits',
   initialState: {
     data: [],
     loading: 'idle',
@@ -17,18 +17,18 @@ export const creditsSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getMovieCredits.pending, (state, action) => {
+    builder.addCase(getTvShowCombinedCredits.pending, (state, action) => {
       if (state.loading === 'idle') {
         state.loading = 'pending'
       }
     })
-    builder.addCase(getMovieCredits.fulfilled, (state, action) => {
+    builder.addCase(getTvShowCombinedCredits.fulfilled, (state, action) => {
       if (state.loading === 'pending') {
         state.data = action.payload
         state.loading = 'idle'
       }
     })
-    builder.addCase(getMovieCredits.rejected, (state, action) => {
+    builder.addCase(getTvShowCombinedCredits.rejected, (state, action) => {
       if (state.loading === 'pending') {
         state.loading = 'idle'
         state.error = 'Error occured'
@@ -36,4 +36,4 @@ export const creditsSlice = createSlice({
     })
   },
 })
-export default creditsSlice.reducer
+export default combinedCreditsSlice.reducer

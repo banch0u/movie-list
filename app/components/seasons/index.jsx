@@ -12,77 +12,43 @@ import './style.css';
 import { StarIcon } from '../../icons';
 import AccordionItem from '../accordionItem';
 
-const Seasons = () => {
+const Seasons = ({ data }) => {
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+  const filteredSeasons = data?.seasons?.filter(
+    (item) => item.season_number !== 0
+  );
   return (
     <section className='py-16'>
       <Wrapper>
         <Title link={false}>Seasons</Title>
-        <div className='accordion flex flex-col gap-2'>
-          <Accordion
-            expanded={expanded === 'panel1'}
-            onChange={handleChange('panel1')}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls='panel1bh-content'
-              id='panel1bh-header'
-              className='bg-customOrange text-black rounded-lg'>
-              <div className='flex gap-4'>
-                <h5 className='font-semibold text-xl'>Season 1</h5>
-                <p className=' text-xl'>10 Episodes</p>
-                <p className='flex items-center  text-xl'>
-                  <StarIcon /> 8
-                </p>
-              </div>
-            </AccordionSummary>
-            <AccordionDetails>
-              <AccordionItem />
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            expanded={expanded === 'panel2'}
-            onChange={handleChange('panel2')}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls='panel2bh-content'
-              id='panel2bh-header'
-              className='bg-customOrange text-black rounded-lg'>
-              <div className='flex gap-4'>
-                <h5 className='font-semibold text-xl'>Season 1</h5>
-                <p className=' text-xl'>10 Episodes</p>
-                <p className='flex items-center  text-xl'>
-                  <StarIcon /> 8
-                </p>
-              </div>
-            </AccordionSummary>
-            <AccordionDetails>
-              <AccordionItem />
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            expanded={expanded === 'panel3'}
-            onChange={handleChange('panel3')}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls='panel3bh-content'
-              id='panel3bh-header'
-              className='bg-customOrange text-black rounded-lg'>
-              <div className='flex gap-4'>
-                <h5 className='font-semibold text-xl'>Season 1</h5>
-                <p className=' text-xl'>10 Episodes</p>
-                <p className='flex items-center  text-xl'>
-                  <StarIcon /> 8
-                </p>
-              </div>
-            </AccordionSummary>
-            <AccordionDetails>
-              <AccordionItem />
-            </AccordionDetails>
-          </Accordion>
+        <div className='accordion flex flex-col gap-2 mt-4'>
+          {filteredSeasons?.map((item) => (
+            <Accordion
+              expanded={expanded === `panel${item.id}`}
+              onChange={handleChange(`panel${item.id}`)}
+              key={item.id}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls='panel1bh-content'
+                id='panel1bh-header'
+                className='!bg-customOrange !text-black !rounded-lg'>
+                <div className='flex gap-4'>
+                  <h5 className='font-semibold text-xl'>{item.name}</h5>
+                  <p className=' text-xl'>{item.episode_count} Episodes</p>
+                  <p className='flex items-center  text-xl'>
+                    <StarIcon /> {item.vote_average.toFixed(1)}
+                  </p>
+                </div>
+              </AccordionSummary>
+              <AccordionDetails>
+                <AccordionItem seasonNum={item?.season_number} id={data?.id} />
+              </AccordionDetails>
+            </Accordion>
+          ))}
         </div>
       </Wrapper>
     </section>

@@ -1,4 +1,3 @@
 .accordion>* {
-  all: unset;
-
+  all: unset !important;
 }

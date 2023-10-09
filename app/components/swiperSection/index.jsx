@@ -67,6 +67,9 @@ const swiperSection = ({
                         <div className='bg-black rounded-b-xl p-2 text-sm'>
                           <p className='font-semibold'>{item.name}</p>
                           <p className='font-light'>{item.character}</p>
+                          <p className='font-light'>
+                            {item?.roles?.[0]?.character}
+                          </p>
                         </div>
                       </Link>
                     </SwiperSlide>
