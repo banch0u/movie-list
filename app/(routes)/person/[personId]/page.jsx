@@ -11,7 +11,7 @@ import { getPersonExternalLinks } from '../../../redux/people/externalLinksSlice
 import { getPersonCombinedCredits } from '../../../redux/people/combinedCreditsSlice';
 import { getPersonImages } from '../../../redux/people/imagesSlice';
 
-const Movie = () => {
+const Person = () => {
   const { personId } = useParams();
   const dispatch = useDispatch();
   const personDetails = useSelector((state) => state.personDetails);
@@ -120,7 +120,6 @@ const Movie = () => {
       }
       ans = { crew: filteredCrew };
     }
-    console.log(data, ans);
     return ans;
   };
 
@@ -168,4 +167,4 @@ const Movie = () => {
   );
 };
 
-export default Movie;
+export default Person;

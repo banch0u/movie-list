@@ -12,7 +12,7 @@ import { useParams } from 'next/navigation';
 import { getMovieSearch } from '../../../redux/search/movieSlice';
 import { getTvShowSearch } from '../../../redux/search/tvShowSlice';
 import { getPersonSearch } from '../../../redux/search/personSlice';
-const SearchId = () => {
+const Search = () => {
   const { searchQuery } = useParams();
   const [page, setPage] = useState(1);
   const [totalResultsTab, setTotalResultsTab] = useState(1);
@@ -153,4 +153,4 @@ const SearchId = () => {
   );
 };
 
-export default SearchId;
+export default Search;

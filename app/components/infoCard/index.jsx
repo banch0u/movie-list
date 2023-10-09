@@ -52,6 +52,7 @@ const InfoCard = ({ details, externalLinks, type = 'movie', credits }) => {
         return dep;
     }
   };
+  console.log(details);
   return (
     <section className='mb-16'>
       {type === 'movie' ? (

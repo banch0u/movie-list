@@ -23,6 +23,7 @@ import personDetailsReducer from './people/detailsSlice'
 import personExternalLinksReducer from './people/externalLinksSlice'
 import personCombinedCreditsReducer from './people/combinedCreditsSlice'
 import personImagesReducer from './people/imagesSlice'
+import tvShowDetailsReducer from './tvShows/detailsSlice'
 
 export default configureStore({
   reducer: {
@@ -49,7 +50,8 @@ export default configureStore({
     personDetails: personDetailsReducer,
     personExternalLinks: personExternalLinksReducer,
     personCombinedCredits: personCombinedCreditsReducer,
-    personImages: personImagesReducer
+    personImages: personImagesReducer,
+    tvShowDetails: tvShowDetailsReducer
 
   },
 })
