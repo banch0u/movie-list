@@ -17,7 +17,7 @@ import multiBarSearchReducer from './search/multiBarSlice'
 import movieDetailsReducer from './movies/detailsSlice'
 import movieExternalLinksReducer from './movies/externalLinksSlice'
 import movieCreditsReducer from './movies/creditsSlice'
-import movieReviewsReducer from './movies/reviewsSice'
+import movieReviewsReducer from './movies/reviewsSlice'
 import similarMoviesReducer from './movies/similarSlice'
 import personDetailsReducer from './people/detailsSlice'
 import personExternalLinksReducer from './people/externalLinksSlice'
@@ -27,6 +27,10 @@ import tvShowDetailsReducer from './tvShows/detailsSlice'
 import tvShowsExternalLinksReducer from './tvShows/externalLinksSlice'
 import tvShowCombinedCreditsReducer from './tvShows/combinedCreditsSlice'
 import tvShowSeasonDetailsReducer from './tvShows/seasonDetailsSlice'
+import tvShowImagesReducer from './tvShows/imagesSlice'
+import tvShowVideosReducer from './tvShows/videosSlice'
+import tvShowReviewsReducer from './tvShows/reviewsSlice'
+import recomendedTvShowsReducer from './tvShows/recomendationsSlice'
 
 export default configureStore({
   reducer: {
@@ -57,7 +61,10 @@ export default configureStore({
     tvShowDetails: tvShowDetailsReducer,
     tvShowExternalLinks: tvShowsExternalLinksReducer,
     tvShowCombinedCredits: tvShowCombinedCreditsReducer,
-    tvShowSeasonDetails: tvShowSeasonDetailsReducer
-
+    tvShowSeasonDetails: tvShowSeasonDetailsReducer,
+    tvShowImages: tvShowImagesReducer,
+    tvShowVideos: tvShowVideosReducer,
+    tvShowReviews: tvShowReviewsReducer,
+    recomendedTvShows: recomendedTvShowsReducer,
   },
 })

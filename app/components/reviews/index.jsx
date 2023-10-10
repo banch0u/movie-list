@@ -32,7 +32,7 @@ const Reviews = ({ bg = true, data }) => {
       style={{ backgroundColor: bg ? '#000' : '#1F1F1F' }}>
       <Wrapper>
         <Title link={false}>Reviews</Title>
-        <div className='mt-2 flex flex-col gap-3'>
+        <div className='mt-4 flex flex-col gap-3'>
           {data?.results?.slice(0, 3).map((item) => (
             <div key={item.id}>
               <div className='flex gap-2 mb-1 items-center'>

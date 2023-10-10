@@ -183,7 +183,7 @@ const InfoCard = ({ details, externalLinks, type = 'movie', credits }) => {
               <p>
                 Next episode air date:{' '}
                 <span className='font-light'>
-                  {details?.next_episode_to_air?.replaceAll('-', '.')}
+                  {details?.next_episode_to_air?.air_date?.replaceAll('-', '.')}
                 </span>
               </p>
             ) : null}

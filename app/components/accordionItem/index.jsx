@@ -58,16 +58,24 @@ const AccordionItem = ({ seasonNum, id }) => {
               </span>
               <span className='inline'>
                 <div className='flex items-center'>
-                  <StarIcon color={'#fff'} w={14} h={13} />{' '}
-                  <span>{item?.vote_average?.toFixed(1)}</span>
+                  {item?.vote_average ? (
+                    <>
+                      <StarIcon color={'#fff'} w={14} h={13} />{' '}
+                      <span>{item?.vote_average?.toFixed(1)}</span>
+                    </>
+                  ) : null}
                 </div>
               </span>
             </h6>
             <p className='flex gap-7 font-extralight'>
-              <span>{calculateDuration(item?.runtime)}</span>
+              <span>
+                {item?.runtime ? calculateDuration(item?.runtime) : null}
+              </span>
               <span className='inline'>
                 <span className='flex items-center'>
-                  Aired in {item?.air_date?.replaceAll('-', '.')}
+                  {item?.air_date
+                    ? `Aired in ${item?.air_date?.replaceAll('-', '.')}`
+                    : null}
                 </span>
               </span>
             </p>

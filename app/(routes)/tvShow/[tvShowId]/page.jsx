@@ -12,6 +12,10 @@ import { useParams } from 'next/navigation';
 import { getTvShowDetails } from '../../../redux/tvShows/detailsSlice';
 import { getTvShowExternalLinks } from '../../../redux/tvShows/externalLinksSlice';
 import { getTvShowCombinedCredits } from '../../../redux/tvShows/combinedCreditsSlice';
+import { getTvShowImages } from '../../../redux/tvShows/imagesSlice';
+import { getTvShowVideos } from '../../../redux/tvShows/videosSlice';
+import { getTvShowReviews } from '../../../redux/tvShows/reviewsSlice';
+import { getRecomendedTvShows } from '../../../redux/tvShows/recomendationsSlice';
 
 const TvShow = () => {
   const { tvShowId } = useParams();
@@ -21,11 +25,19 @@ const TvShow = () => {
   const tvShowCombinedCredits = useSelector(
     (state) => state.tvShowCombinedCredits
   );
+  const tvShowImages = useSelector((state) => state.tvShowImages);
+  const tvShowVideos = useSelector((state) => state.tvShowVideos);
+  const tvShowReviews = useSelector((state) => state.tvShowReviews);
+  const recomendedTvShows = useSelector((state) => state.recomendedTvShows);
 
   useEffect(() => {
     dispatch(getTvShowDetails(tvShowId, { language: 'en-US' }));
     dispatch(getTvShowExternalLinks(tvShowId));
     dispatch(getTvShowCombinedCredits(tvShowId, { language: 'en-US' }));
+    dispatch(getTvShowImages(tvShowId));
+    dispatch(getTvShowVideos(tvShowId, { language: 'en-US' }));
+    dispatch(getTvShowReviews(tvShowId, { language: 'en-US', page: 1 }));
+    dispatch(getRecomendedTvShows(tvShowId, { language: 'en-US' }));
   }, [dispatch]);
   return (
     <main>
@@ -47,11 +59,16 @@ const TvShow = () => {
         bg={false}
         title={'Media'}
         type={'slide'}
-        images={''}
-        videos={''}
+        images={tvShowImages?.data}
+        videos={tvShowVideos?.data}
       />
-      <Reviews data={''} />
-      <SwiperSection bg={false} title={'Similar to'} type={'slide'} data={''} />
+      <Reviews data={tvShowReviews?.data} />
+      <SwiperSection
+        bg={false}
+        title={'Recomendations'}
+        type={'slide'}
+        data={recomendedTvShows?.data}
+      />
     </main>
   );
 };

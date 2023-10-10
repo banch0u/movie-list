@@ -12,7 +12,7 @@ import { getMovieCredits } from '../../../redux/movies/creditsSlice';
 import { useParams } from 'next/navigation';
 import { getMovieImages } from '../../../redux/movies/imagesSlice';
 import { getMovieVideos } from '../../../redux/movies/videosSlice';
-import { getMovieReviews } from '../../../redux/movies/reviewsSice';
+import { getMovieReviews } from '../../../redux/movies/reviewsSlice';
 import { getSimilarMovies } from '../../../redux/movies/similarSlice';
 const Movie = () => {
   const { movieId } = useParams();
