@@ -76,6 +76,8 @@ const Header = () => {
                               ? `/movie/${item.id}`
                               : '' || item?.media_type === 'person'
                               ? `/person/${item.id}`
+                              : '' || item?.media_type === 'tv'
+                              ? `/tvShow/${item.id}`
                               : ''
                           }
                           onClick={() => setQuery('')}

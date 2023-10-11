@@ -1,33 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import ShowMoreText from 'react-show-more-text';
 
-const ShowMoreContent = ({ children, id }) => {
-  const [showMore, setShowMore] = useState('line-clamp-4');
-  const [line, setLine] = useState(0);
-
-  const toggleShowMore = () => {
-    showMore === 'line-clamp-4' ? setShowMore('') : setShowMore('line-clamp-4');
-  };
-  useEffect(() => {
-    const element = document.getElementById(id);
-    let numberOfLines = element.clientHeight / 24;
-    setLine(numberOfLines);
-  }, []);
-
+const ShowMoreContent = ({ children }) => {
   return (
-    <>
-      <p className={`font-light ${showMore}`} id={id}>
-        {children}
-      </p>
-      <div className='flex justify-center'>
-        {line > 3 ? (
-          <button
-            className='hover:text-customOrange transition-all'
-            onClick={() => toggleShowMore()}>
-            {showMore === '' ? 'Show Less' : ' Show more'}
-          </button>
-        ) : null}
-      </div>
-    </>
+    <ShowMoreText
+      lines={4}
+      more='Show more'
+      less='Show less'
+      className='content-css'
+      anchorClass='no-underline cursor-pointer block text-center mt-1'
+      expanded={false}
+      truncatedEndingComponent={` `}>
+      {children}
+    </ShowMoreText>
   );
 };
 

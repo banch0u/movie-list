@@ -43,7 +43,7 @@ const Hero = () => {
       )}
       <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3'>
         <Wrapper>
-          <h2 className='text-6xl mb-2'>Wellcome</h2>
+          <h2 className='text-6xl mb-2'>Welcome</h2>
           <p className='text-2xl mb-6'>
             Movies are the gateway to discover new worlds, and in each frame, we
             find a piece of our own.

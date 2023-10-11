@@ -39,7 +39,13 @@ const TitlesItem = ({ type = 'movie', data, bg }) => {
         <>
           {data?.results?.slice(0, 6).map((item) => (
             <Link
-              href={type === 'movie' ? `/movie/${item.id}` : ''}
+              href={
+                type === 'movie'
+                  ? `/movie/${item.id}`
+                  : '' || type === 'tvShow'
+                  ? `/tvShow/${item.id}`
+                  : ''
+              }
               className='w-[16.6%]'
               key={item?.id}>
               <img
