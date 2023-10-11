@@ -26,20 +26,26 @@ const Hero = () => {
       {load ? (
         <div>
           {data?.results ? (
-            <div className='h-[700px] relative'>
+            <div className=' relative' style={{ aspectRatio: 1903 / 700 }}>
               <img
                 src={`https://image.tmdb.org/t/p/original${data?.results[rndTitle]?.backdrop_path}`}
                 alt={data?.results[rndTitle]?.original_title}
-                className='w-full '
+                className='w-full'
               />
-              <div className='w-full h-[700px] bg-customGray absolute top-0 left-0 -z-10'></div>
+              <div
+                className='w-full bg-customGray absolute top-0 left-0 -z-10 animate-pulse'
+                style={{ aspectRatio: 1903 / 700 }}></div>
             </div>
           ) : (
-            <div className='w-full h-[700px] bg-customGray'></div>
+            <div
+              className='w-full bg-customGray animate-pulse'
+              style={{ aspectRatio: 1903 / 700 }}></div>
           )}
         </div>
       ) : (
-        <div className='w-full h-[700px] bg-customGray'></div>
+        <div
+          className='w-full bg-customGray animate-pulse'
+          style={{ aspectRatio: 1903 / 700 }}></div>
       )}
       <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3'>
         <Wrapper>

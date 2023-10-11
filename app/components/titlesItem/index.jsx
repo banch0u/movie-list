@@ -1,13 +1,10 @@
 'use client';
-import Image from 'next/image';
-import React, { use, useEffect, useState } from 'react';
-import CoverImage from '../../assets/images/title.jpg';
+import React from 'react';
 import Score from '../score';
 import Link from 'next/link';
 
 const TitlesItem = ({ type = 'movie', data, bg }) => {
-  const [load, setLoad] = useState(false);
-
+  const blankArr = Array(6).fill('');
   const parceDate = (dateString) => {
     const tempDate = new Date(dateString);
     const monthNames = [
@@ -29,13 +26,9 @@ const TitlesItem = ({ type = 'movie', data, bg }) => {
     const day = tempDate.getDate();
     return day + ' ' + monthNames[month] + ' ' + year;
   };
-
-  useEffect(() => {
-    data ? setLoad(true) : null;
-  }, [data]);
   return (
     <div className='flex gap-6 justify-center'>
-      {load ? (
+      {data?.results ? (
         <>
           {data?.results?.slice(0, 6).map((item) => (
             <Link
@@ -69,7 +62,33 @@ const TitlesItem = ({ type = 'movie', data, bg }) => {
             </Link>
           ))}
         </>
-      ) : null}
+      ) : (
+        <>
+          {blankArr.map(() => (
+            <div className='w-[16.6%]'>
+              <div
+                className='rounded-xl mb-2 animate-pulse'
+                style={{
+                  aspectRatio: 956 / 1429,
+                  backgroundColor: bg ? '#1F1F1F' : '#000000',
+                }}></div>
+              <div>
+                <div className='flex items-center gap-2 mb-1'>
+                  <Score bg={bg} />
+                  <h4
+                    className='rounded-xl w-full h-4 animate-pulse'
+                    style={{
+                      backgroundColor: bg ? '#1F1F1F' : '#000000',
+                    }}></h4>
+                </div>
+                <p
+                  className='w-1/3 h-4 animate-pulse rounded-xl'
+                  style={{ backgroundColor: bg ? '#1F1F1F' : '#000000' }}></p>
+              </div>
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 };

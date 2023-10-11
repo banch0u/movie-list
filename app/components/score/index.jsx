@@ -13,13 +13,24 @@ const Score = ({ score, bg }) => {
     }
   };
   return (
-    <div
-      className='w-6 h-6 rounded-full inline-flex items-center justify-center text-sm font-bold mr-2'
-      style={{ backgroundColor: `${bg ? '#1C1C1C' : '#000000'}` }}>
-      <span style={{ color: `${determineColor(score)}` }}>
-        {Math.trunc(score)}
-      </span>
-    </div>
+    <>
+      {score ? (
+        <div
+          className='w-6 h-6 rounded-full inline-flex items-center justify-center text-sm font-bold mr-2'
+          style={{ backgroundColor: `${bg ? '#1F1F1F' : '#000000'}` }}>
+          <span style={{ color: `${determineColor(score)}` }}>
+            {Math.trunc(score)}
+          </span>
+        </div>
+      ) : (
+        <div
+          className='w-6 h-6 rounded-full inline-flex items-center justify-center text-sm font-bold animate-pulse'
+          style={{
+            backgroundColor: `${bg ? '#1F1F1F' : '#000000'}`,
+            aspectRatio: 1 / 1,
+          }}></div>
+      )}
+    </>
   );
 };
 
