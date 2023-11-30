@@ -34,6 +34,8 @@ const Card = ({ data, type }) => {
           ? `/movie/${newArr?.id}`
           : '' || newArr?.media_type === 'person'
           ? `/person/${newArr?.id}`
+          : '' || newArr?.media_type === 'tv'
+          ? `/tvShow/${newArr?.id}`
           : ''
       }
       className='bg-customGray rounded-lg p-4 flex gap-6'>
