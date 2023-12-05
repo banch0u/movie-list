@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMultiBarSearch } from '../../../redux/search/multiBarSlice';
+import './style.css';
 const Header = () => {
   const [query, setQuery] = useState('');
   const [focus, setFocus] = useState(false);
@@ -43,15 +44,30 @@ const Header = () => {
               </h1>
             </Link>
           </div>
-          <ul className='flex gap-20 text-xl font-semibold'>
-            <li className='transition hover:text-customOrange '>
-              <Link href=''>Movies</Link>
+          <ul className='flex gap-20 text-xl font-semibold dropdowns'>
+            <li class='dropdown'>
+              <button class='dropbtn'>Movies</button>
+              <div class='dropdown-content'>
+                <Link href='#'>Popular</Link>
+                <Link href='#'>Now Playing</Link>
+                <Link href='#'>Upcoming</Link>
+                <Link href='#'>Top Rated</Link>
+              </div>
             </li>
-            <li className='transition hover:text-customOrange '>
-              <Link href=''>Tv Shows</Link>
+            <li class='dropdown'>
+              <button class='dropbtn'>Tv Shows</button>
+              <div class='dropdown-content'>
+                <Link href='#'>Popular</Link>
+                <Link href='#'>Airing Today</Link>
+                <Link href='#'>On TV</Link>
+                <Link href='#'>Top Rated</Link>
+              </div>
             </li>
-            <li className='transition hover:text-customOrange '>
-              <Link href=''>Peoples</Link>
+            <li class='dropdown'>
+              <button class='dropbtn'>People</button>
+              <div class='dropdown-content'>
+                <Link href='#'>Popular People</Link>
+              </div>
             </li>
           </ul>
           <div className='flex gap-4 relative'>
