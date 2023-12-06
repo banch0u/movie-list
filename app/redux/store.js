@@ -31,6 +31,7 @@ import tvShowImagesReducer from './tvShows/imagesSlice'
 import tvShowVideosReducer from './tvShows/videosSlice'
 import tvShowReviewsReducer from './tvShows/reviewsSlice'
 import recomendedTvShowsReducer from './tvShows/recomendationsSlice'
+import nowPlayingMoviesReducer from './movies/nowPlayingSlice'
 
 export default configureStore({
   reducer: {
@@ -66,5 +67,7 @@ export default configureStore({
     tvShowVideos: tvShowVideosReducer,
     tvShowReviews: tvShowReviewsReducer,
     recomendedTvShows: recomendedTvShowsReducer,
+    nowPlayingMovies: nowPlayingMoviesReducer,
+
   },
 })
