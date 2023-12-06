@@ -18,7 +18,7 @@ const TopRated = () => {
   return (
     <main>
       <Wrapper>
-        <Title link={false}>Now Playing</Title>
+        <Title link={false}>Top Rated Movies</Title>
         <div className='grid  grid-cols-5 gap-8 py-6'>
           {movieTopRated?.data?.results?.map((item) => (
             <TitleCard data={item} type={'movie'} />

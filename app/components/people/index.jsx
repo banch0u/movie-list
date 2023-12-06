@@ -12,7 +12,7 @@ const People = ({ bg = true, title, data }) => {
       style={{ backgroundColor: `${bg ? '#000000' : '#1F1F1F'}` }}>
       <Wrapper>
         <div className='pb-4'>
-          <Title>{title}</Title>
+          <Title link={'person/popular'}>{title}</Title>
         </div>
         <div className='grid grid-cols-3  gap-6'>
           {data?.results ? (

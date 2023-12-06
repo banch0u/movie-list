@@ -48,10 +48,10 @@ const Header = () => {
             <li class='dropdown'>
               <button class='dropbtn'>Movies</button>
               <div class='dropdown-content'>
-                <Link href='#'>Popular</Link>
-                <Link href='#'>Now Playing</Link>
-                <Link href='#'>Upcoming</Link>
-                <Link href='#'>Top Rated</Link>
+                <Link href='/movie/popular'>Popular</Link>
+                <Link href='/movie/nowPlaying'>Now Playing</Link>
+                <Link href='/movie/upcoming'>Upcoming</Link>
+                <Link href='/movie/topRated'>Top Rated</Link>
               </div>
             </li>
             <li class='dropdown'>

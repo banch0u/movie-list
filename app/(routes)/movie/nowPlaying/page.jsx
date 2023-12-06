@@ -22,7 +22,7 @@ const NowPlaying = () => {
   return (
     <main>
       <Wrapper>
-        <Title link={false}>Now Playing</Title>
+        <Title link={false}>Now Playing Movies</Title>
         <div className='grid  grid-cols-5 gap-8 py-6'>
           {nowPlayingMovies?.data?.results?.map((item) => (
             <TitleCard data={item} type={'movie'} />

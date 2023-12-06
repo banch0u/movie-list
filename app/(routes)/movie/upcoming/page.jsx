@@ -18,7 +18,7 @@ const Upcoming = () => {
   return (
     <main>
       <Wrapper>
-        <Title link={false}>Now Playing</Title>
+        <Title link={false}>Upcoming Movies</Title>
         <div className='grid  grid-cols-5 gap-8 py-6'>
           {upcomingMovies?.data?.results?.map((item) => (
             <TitleCard data={item} type={'movie'} />
