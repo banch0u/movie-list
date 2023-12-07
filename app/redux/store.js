@@ -32,6 +32,7 @@ import tvShowVideosReducer from './tvShows/videosSlice'
 import tvShowReviewsReducer from './tvShows/reviewsSlice'
 import recomendedTvShowsReducer from './tvShows/recomendationsSlice'
 import nowPlayingMoviesReducer from './movies/nowPlayingSlice'
+import tvShowTopRatedReducer from './tvShows/topRatedSlice';
 
 export default configureStore({
   reducer: {
@@ -68,6 +69,6 @@ export default configureStore({
     tvShowReviews: tvShowReviewsReducer,
     recomendedTvShows: recomendedTvShowsReducer,
     nowPlayingMovies: nowPlayingMoviesReducer,
-
+    tvShowTopRated: tvShowTopRatedReducer
   },
 })

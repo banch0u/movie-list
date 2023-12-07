@@ -1,18 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from '../../axios/index'
 
-export const getTvShowSeasonDetails = createAsyncThunk(
-  'tvShows/getTvShowSeasonDetails',
-  async ({ seriesId, seasonId, param }) => {
-    const response = await axios.get(`/tv/${seriesId}/season/${seasonId}`, {
-      params: param
-    })
-    return response.data
-  }
-)
+export const getTopRated = createAsyncThunk('movies/getTopRated', async (param) => {
+  const response = await axios.get(`/tv/top_rated`, {
+    params: param
+  })
+  return response.data
+})
 
-export const seasonDetailsSlice = createSlice({
-  name: 'seasonDetails',
+export const topRatedSlice = createSlice({
+  name: 'topRated',
   initialState: {
     data: [],
     loading: 'idle',
@@ -20,19 +17,19 @@ export const seasonDetailsSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getTvShowSeasonDetails.pending, (state, action) => {
+    builder.addCase(getTopRated.pending, (state, action) => {
       if (state.loading === 'idle') {
         state.data = null;
         state.loading = 'pending'
       }
     })
-    builder.addCase(getTvShowSeasonDetails.fulfilled, (state, action) => {
+    builder.addCase(getTopRated.fulfilled, (state, action) => {
       if (state.loading === 'pending') {
         state.data = action.payload
         state.loading = 'idle'
       }
     })
-    builder.addCase(getTvShowSeasonDetails.rejected, (state, action) => {
+    builder.addCase(getTopRated.rejected, (state, action) => {
       if (state.loading === 'pending') {
         state.data = null;
         state.loading = 'idle'
@@ -41,4 +38,4 @@ export const seasonDetailsSlice = createSlice({
     })
   },
 })
-export default seasonDetailsSlice.reducer
+export default topRatedSlice.reducer

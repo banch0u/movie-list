@@ -19,6 +19,7 @@ export const detailsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getMovieDetails.pending, (state, action) => {
       if (state.loading === 'idle') {
+        state.data = null;
         state.loading = 'pending'
       }
     })
@@ -30,6 +31,7 @@ export const detailsSlice = createSlice({
     })
     builder.addCase(getMovieDetails.rejected, (state, action) => {
       if (state.loading === 'pending') {
+        state.data = null;
         state.loading = 'idle'
         state.error = 'Error occured'
       }

@@ -40,7 +40,6 @@ export default function Home() {
         tvShowData={trendingTvShows?.data}
       />
       <Titles
-        type={'trailer'}
         title={'Upcoming'}
         bg={false}
         movieData={upcomingMovies?.data}

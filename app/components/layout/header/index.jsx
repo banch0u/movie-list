@@ -57,10 +57,9 @@ const Header = () => {
             <li class='dropdown'>
               <button class='dropbtn'>Tv Shows</button>
               <div class='dropdown-content'>
-                <Link href='#'>Popular</Link>
-                <Link href='#'>Airing Today</Link>
-                <Link href='#'>On TV</Link>
-                <Link href='#'>Top Rated</Link>
+                <Link href='/tvShow/popular'>Popular</Link>
+                <Link href='/tvShow/upcoming'>Upcoming</Link>
+                <Link href='/tvShow/topRated'>Top Rated</Link>
               </div>
             </li>
             <li class='dropdown'>

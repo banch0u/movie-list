@@ -17,6 +17,7 @@ export const externalLinksSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getMovieExternalLinks.pending, (state, action) => {
       if (state.loading === 'idle') {
+        state.data = null;
         state.loading = 'pending'
       }
     })
@@ -28,6 +29,7 @@ export const externalLinksSlice = createSlice({
     })
     builder.addCase(getMovieExternalLinks.rejected, (state, action) => {
       if (state.loading === 'pending') {
+        state.data = null;
         state.loading = 'idle'
         state.error = 'Error occured'
       }
